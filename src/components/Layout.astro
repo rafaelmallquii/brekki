@@ -1,0 +1,133 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="flex flex-col min-h-[100vh]">
+    <header class="bg-[var(--white)] text-[var(--pink)] p-3">
+      <nav
+        class="container flex justify-between items-center m-auto font-extrabold"
+      >
+        <div class="flex items-center gap-4">
+          <Icon name="menu" class="w-[30px] h-[30px] cursor-pointer" />
+          <Icon name="instagram" class="w-[24px] h-[24px] cursor-pointer" />
+          <Icon name="facebook" class="w-[24px] h-[24px] cursor-pointer" />
+        </div>
+
+        <a href="/" class="text-3xl">brekki</a>
+
+        <a href="/find-us" class="text-xl hover:underline">get brekki now</a>
+      </nav>
+    </header>
+    <main class="flex-1 overflow-hidden">
+      <slot />
+    </main>
+    <footer class="bg-[var(--skin)] p-5 flex flex-col items-center">
+      <div class="container flex flex-col gap-6 py-6">
+        <div class="container flex justify-between text-[var(--brown)]">
+          <a href="/" class="text-2xl">brekki</a>
+          <form action="" class="flex flex-col items-stretch gap-3">
+            <p class="text-center flex flex-col items-center">
+              <strong>
+                stir up your inbox with updates and deals by the spoonful!
+              </strong>
+              <span
+                class="font-light"
+                style="font-family: Arial, Helvetica, sans-serif;"
+                >subscribe now to peel open $1 off your next brekki.</span
+              >
+            </p>
+            <input
+              type="email"
+              required
+              placeholder="email *"
+              class="border-[var(--brown)] font-light placeholder:font-light placeholder:text-black border-[1px] bg-transparent px-4 py-2"
+              style="font-family: Arial"
+            />
+            <input
+              type="text"
+              required
+              placeholder="zip code *"
+              class="border-[var(--brown)] font-light placeholder:font-light placeholder:text-black border-[1px] bg-transparent px-4 py-2"
+              style="font-family: Arial"
+            />
+            <input
+              placeholder="phone number (optional)"
+              type="text"
+              class="border-[var(--brown)] font-light placeholder:font-light placeholder:text-black border-[1px] bg-transparent px-4 py-2"
+              style="font-family: Arial"
+            />
+            <button
+              class="bg-[var(--brown)] text-[var(--skin)] px-4 py-2 text-xl"
+              style="font-family:'Times New Roman', Times, serif"
+              >let's go</button
+            >
+          </form>
+          <nav>
+            <ul>
+              <li>where to buy brekki</li>
+              <li>our story</li>
+              <li>connect</li>
+              <li>contact</li>
+            </ul>
+          </nav>
+          <nav>
+            <ul>
+              <li>© Copyright 2024 brekki</li>
+              <li>privacy policy</li>
+              <li>hello@brekki.com</li>
+            </ul>
+          </nav>
+        </div>
+        <div class="container">
+          <hr class="h-[2px] bg-[var(--brown)]" />
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --pink: #ff5596;
+    --red: #c90022;
+    --white: #fff5d4;
+    --yellow: #f7c908;
+    --dark-yellow: #db9b0e;
+    --orange: #ff623e;
+    --blue: #0000e8;
+    --green: #009362;
+    --skin: #fce6ca;
+    --light-brown: #892003;
+    --brown: #4f1f0c;
+    --coffee: #773118;
+  }
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "AvenirBlack", "Arial", sans-serif;
+    font-weight: 900;
+  }
+  @font-face {
+    font-family: "AvenirBlack";
+    src: url("/fonts/AvenirBlack.ttf");
+    font-weight: bolder;
+    font-style: normal;
+  }
+</style>
